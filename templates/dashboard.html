@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <h2>Expense Dashboard</h2>
+    <a href="/logout">Logout</a>
+
+    <form method="post">
+        <input name="title" placeholder="Expense Name" required>
+        <input name="amount" type="number" placeholder="Amount (+income, -expense)" required>
+        <button>Add</button>
+    </form>
+
+    <ul>
+        {% for e in expenses %}
+        <li>
+            {{ e.title }} - ₹{{ e.amount }}
+            <a href="/delete/{{e.id}}">❌</a>
+        </li>
+        {% endfor %}
+    </ul>
+
+</body>
+
+</html>
